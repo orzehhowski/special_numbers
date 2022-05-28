@@ -1,6 +1,7 @@
 package com.specialnums;
 
 public class Timer implements Runnable {
+    //class to stop calculations after 10 seconds
     int current;
     Thread toStop;
     Thread timer;

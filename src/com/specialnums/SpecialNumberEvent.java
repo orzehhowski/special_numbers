@@ -16,14 +16,17 @@ public class SpecialNumberEvent implements ActionListener, ItemListener, Runnabl
 
     @Override
     public void actionPerformed(ActionEvent event) {
+        //starts calculate thread
         calculator = new Thread(this);
         calculator.start();
+        //starts thread stopping too long calculations
         timer = new Thread(new Timer(calculator, gui));
         timer.start();
     }
 
     @Override
     public void itemStateChanged(ItemEvent event) {
+        //this function is only setting if k Text Field is enable
         if (gui.optionsButton.getSelection() != null) {
             int chosen = Integer.parseInt(gui.optionsButton.getSelection().getActionCommand());
             gui.kTF.setEnabled((chosen != 0) && (chosen != 4) && (chosen < 7));
@@ -34,6 +37,7 @@ public class SpecialNumberEvent implements ActionListener, ItemListener, Runnabl
     public void run() {
         SpecialNumbersCalculations calc = new SpecialNumbersCalculations();
 
+        //getting value of n
         String nStr = gui.nTF.getText();
         long n = 0;
         long ans = 0;
@@ -53,6 +57,7 @@ public class SpecialNumberEvent implements ActionListener, ItemListener, Runnabl
             gui.resultTF.setText("incorrect numbers");
         }
 
+        //calculating numbers which need only n
         if ((chosen == 0) || (chosen == 4) || (chosen >= 8)) {
 
             switch (chosen) {
@@ -64,10 +69,14 @@ public class SpecialNumberEvent implements ActionListener, ItemListener, Runnabl
             }
             gui.resultTF.setText(String.valueOf(ans));
         }
+
+        //calculating harmonic number - its the only double result
         else if (chosen == 7) {
             double ansD = calc.harmonic(n);
             gui.resultTF.setText(String.valueOf(ansD));
         }
+
+        //getting value of k and calculating numbers which need n and k
         else {
             long k = 0;
             String kStr = gui.kTF.getText();

@@ -58,33 +58,43 @@ public class SpecialNumbersFrame extends JFrame {
         }
 
         add(options);
-        //values components
+
+        //values components - text fields with n, k and result
         BoxLayout valuesLayout = new BoxLayout(values, BoxLayout.Y_AXIS);
         values.setLayout(valuesLayout);
         values.setMaximumSize(new Dimension(200, 300));
+
         nLabel.setFont(font);
         values.add(nLabel);
+
         nTF.setMaximumSize(new Dimension(400, 30));
         nTF.setFont(font);
         nTF.addActionListener(eventListener);
         values.add(nTF);
+
         kLabel.setFont(font);
         values.add(kLabel);
+
         kTF.setMaximumSize(new Dimension(400, 30));
         kTF.setFont(font);
         kTF.addActionListener(eventListener);
         values.add(kTF);
+
         calculateButton.setFont(font);
         calculateButton.addActionListener(eventListener);
         values.add(calculateButton);
+
         resultLabel.setFont(font);
         values.add(resultLabel);
+
         resultTF.setMaximumSize(new Dimension(400, 30));
         resultTF.setFont(font);
         resultTF.setEditable(false);
         values.add(resultTF);
+
         rules.setFont(font);
         values.add(rules);
+
         add(values);
 
         setVisible(true);
