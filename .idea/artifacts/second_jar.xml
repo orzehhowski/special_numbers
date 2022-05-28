@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="second:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/second_jar</output-path>
-    <root id="archive" name="second.jar">
-      <element id="module-output" name="special_numbers" />
-    </root>
-  </artifact>
-</component>

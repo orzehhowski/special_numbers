@@ -55,7 +55,7 @@ public class SpecialNumbersCalculations {
         if (k >= n)
             return 0;
         if (k == 0)
-            return 0;
+            return 1;
         return (k + 1) * eulerSecondKind(n - 1, k) + (2 * n - 1 - k) * eulerSecondKind(n - 1, k - 1);
     }
 
