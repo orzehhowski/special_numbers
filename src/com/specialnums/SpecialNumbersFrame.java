@@ -5,11 +5,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class SpecialNumbersFrame extends JFrame {
+    SpecialNumberEvent eventListener = new SpecialNumberEvent(this);
+
     //components
     JPanel options = new JPanel();
     ButtonGroup optionsButton = new ButtonGroup();
     ArrayList<JCheckBox> checkBoxes = new ArrayList<>();
-    JCheckBox[] checkBoxesX = new JCheckBox[11];
     JPanelCenter values = new JPanelCenter();
     JLabel nLabel = new JLabel("n:");
     JTextField nTF = new JTextField();
@@ -35,7 +36,7 @@ public class SpecialNumbersFrame extends JFrame {
         //menu components
         GridLayout optionsLayout = new GridLayout(11, 1, 5, 5);
         options.setLayout(optionsLayout);
-        checkBoxes.add(new JCheckBox("Factorial", true));
+        checkBoxes.add(new JCheckBox("Factorial"));
         checkBoxes.add(new JCheckBox("Binomial theorem"));
         checkBoxes.add(new JCheckBox("Stirling 1. kind"));
         checkBoxes.add(new JCheckBox("Stirling 2. kind"));
@@ -47,11 +48,15 @@ public class SpecialNumbersFrame extends JFrame {
         checkBoxes.add(new JCheckBox("Fibonacci sequence"));
         checkBoxes.add(new JCheckBox("Lucas sequence"));
 
-        for (JCheckBox checkBox : checkBoxes) {
+        for (int i = 0; i < checkBoxes.size(); i++) {
+            JCheckBox checkBox = checkBoxes.get(i);
             checkBox.setFont(font);
             optionsButton.add(checkBox);
             options.add(checkBox);
+            checkBox.setActionCommand(String.valueOf(i));
+            checkBox.addItemListener(eventListener);
         }
+
         add(options);
         //values components
         BoxLayout valuesLayout = new BoxLayout(values, BoxLayout.Y_AXIS);
@@ -59,19 +64,22 @@ public class SpecialNumbersFrame extends JFrame {
         values.setMaximumSize(new Dimension(200, 300));
         nLabel.setFont(font);
         values.add(nLabel);
-        nTF.setMaximumSize(new Dimension(200, 30));
+        nTF.setMaximumSize(new Dimension(400, 30));
         nTF.setFont(font);
+        nTF.addActionListener(eventListener);
         values.add(nTF);
         kLabel.setFont(font);
         values.add(kLabel);
-        kTF.setMaximumSize(new Dimension(200, 30));
+        kTF.setMaximumSize(new Dimension(400, 30));
         kTF.setFont(font);
+        kTF.addActionListener(eventListener);
         values.add(kTF);
         calculateButton.setFont(font);
+        calculateButton.addActionListener(eventListener);
         values.add(calculateButton);
         resultLabel.setFont(font);
         values.add(resultLabel);
-        resultTF.setMaximumSize(new Dimension(200, 30));
+        resultTF.setMaximumSize(new Dimension(400, 30));
         resultTF.setFont(font);
         resultTF.setEditable(false);
         values.add(resultTF);
