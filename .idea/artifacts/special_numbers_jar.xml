@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="special_numbers:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/special_numbers_jar</output-path>
+    <root id="archive" name="special_numbers.jar">
+      <element id="module-output" name="special_numbers" />
+    </root>
+  </artifact>
+</component>
