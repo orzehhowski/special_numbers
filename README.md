@@ -1,3 +1,3 @@
 # special_numbers
 
-special numbers calculator made in java swing, with awful display and responsibility
+calculator for numbers such as factorial, stirling numbers, bell numbers, fibonacci numbers and so made in java swing, with awful display and responsibility
